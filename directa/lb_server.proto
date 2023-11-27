@@ -1,0 +1,37 @@
+syntax = "proto3";
+//import "google/protobuf/empty.proto";
+
+// to compile
+// python3 -m grpc_tools.protoc -I./ --python_out=. --grpc_python_out=. --pyi_out=. ./lb_server.proto
+
+message BooleanResponse{
+  bool success = 1;
+}
+
+message CO2 {
+  float co2 = 1;
+  float timestamp = 2;
+}
+
+message Humidity {
+  float temperature = 1;
+  float humidity = 2;
+  float timestamp = 3;
+}
+
+message Pollution {
+  float pollution = 1;
+  float timestamp = 2;
+}
+
+
+service LB_service{
+  rpc SendPollution (Pollution) returns (BooleanResponse) {}
+  rpc SendHumidity (Humidity) returns (BooleanResponse) {}
+}
+
+service Server_service{
+  rpc SendPollution (Pollution) returns (BooleanResponse) {}
+  rpc SendHumidity (Humidity) returns (BooleanResponse) {}
+}
+

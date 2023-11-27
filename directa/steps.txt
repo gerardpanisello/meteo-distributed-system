@@ -1,0 +1,14 @@
+Steps:
+	1.Iniciar LB en terminal
+		(python3 grpc_LB.py)
+	2.Iniciar servidores ejecutando archivo del server
+		(python3 grpc_server.py --windows 3 --start_port 50051)
+	3.Iniciar redis 
+		(redis-server)	(redis-cli -h localhost) 
+	4.Iniciar els dos sensors en terminals diferents
+		(python3 grpc_airsensor.py) y (python3 grpc_co2sensor.py)
+	5.Usar comanda 
+		HGETALL servidor_X a la terminal del redis para ver datos
+
+
+
